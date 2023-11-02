@@ -1,18 +1,16 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class MorseCodeTest {
     @Test
     public void TestCode() {
         String expected = MorseCodeConverter.englishToMorse("Peter loves coding");
-        assertEquals(".--. . - . .-.  .-.. --- ...- . ...  -.-. --- -.. .. -. --. ", expected);
+        assertEquals(".--. . - . .-.  .-.. --- ...- . ...  -.-. --- -.. .. -. --.", expected);
     }
 
     @Test
     public void TestMorseCode() {
-        String expected = MorseCodeConverter.morseToEnglish(".--. . - . .-.  .-.. --- ...- . ...  -.-. --- -.. .. -. --. ");
+        String expected = MorseCodeConverter.morseToEnglish(".--. . - . .-.  .-.. --- ...- . ...  -.-. --- -.. .. -. --.");
         assertEquals("PETER LOVES CODING", expected);
     }
 
