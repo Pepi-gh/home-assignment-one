@@ -1,15 +1,27 @@
-public class Main {
+import java.util.Scanner;
+
+public class MorseCodeMain {
 
     public static void main(String[] args) {
-        MorseCodeConverter converter = new MorseCodeConverter();
-        String morseCode = "... --- ... ; - .... . ; .- .-. -..";
-        String englishText = converter.morseToEnglish(morseCode);
-        System.out.println("Morse Code: " + morseCode);
-        System.out.println("English Text: " + englishText);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choose an option:");
+        System.out.println("1. English to Morse");
+        System.out.println("2. Morse to English");
+        int option = scanner.nextInt();
+        scanner.nextLine();
 
-        String text = "SOS THE ARD";
-        String morseCodeText = converter.englishToMorse(text);
-        System.out.println("English Text: " + text);
-        System.out.println("Morse Code: " + morseCodeText);
+        if (option == 1) {
+            System.out.print("Enter English text: ");
+            String englishText = scanner.nextLine();
+            String morseCode = MorseCodeConverter.englishToMorse(englishText);
+            System.out.println("Morse Code: " + morseCode);
+        } else if (option == 2) {
+            System.out.print("Enter Morse code: ");
+            String morseCode = scanner.nextLine();
+            String englishText = MorseCodeConverter.morseToEnglish(morseCode);
+            System.out.println("English Text: " + englishText);
+        } else {
+            System.out.println("Invalid option.");
+        }
     }
 }
