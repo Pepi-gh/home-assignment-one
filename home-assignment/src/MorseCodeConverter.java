@@ -6,7 +6,7 @@ public class MorseCodeConverter {
     private static final HashMap<String, Character> morse2 = new HashMap<>();
 
     static {
-        // Adding the Letters in HashMaps with English-to-Morse and Morse-to-English mappings
+        // Adding the Letters in HashMaps with English-to-Morse.
         english2Morse.put('A', ".-");
         english2Morse.put('B', "-...");
         english2Morse.put('C', "-.-.");
@@ -34,7 +34,7 @@ public class MorseCodeConverter {
         english2Morse.put('Y', "-.--");
         english2Morse.put('Z', "--..");
 
-        // Adding the Numbers in HashMaps with English-to-Morse and Morse-to-English mappings
+        // Adding the Numbers in HashMaps with English-to-Morse.
         english2Morse.put('1', ".----");
         english2Morse.put('2', "..---");
         english2Morse.put('3', "...--");
@@ -46,7 +46,7 @@ public class MorseCodeConverter {
         english2Morse.put('9', "----.");
         english2Morse.put('0', "-----");
 
-        // Adding the Symbols in HashMaps with English-to-Morse and Morse-to-English mappings
+        // Adding the Symbols in HashMaps with English-to-Morse.
         english2Morse.put('.', ".-.-.-");
         english2Morse.put(',', "--..--");
         english2Morse.put('?', "..--..");
@@ -60,37 +60,32 @@ public class MorseCodeConverter {
     }
 
 
-
     public static String englishToMorse(String text) {
-        String morseCode = "";
+        String e2Morse = "";
         for (char c : text.toUpperCase().toCharArray()) {
             if (c == ' ') {
-                morseCode += " ";
+                e2Morse = e2Morse + " ";
             } else if (english2Morse.containsKey(c)) {
-                morseCode += english2Morse.get(c) + " ";
+                e2Morse = e2Morse + english2Morse.get(c) + " ";
             } else {
                 return "Invalid input: " + c;
             }
         }
-        return morseCode.trim();
+        return e2Morse.trim();
     }
 
     public static String morseToEnglish(String morseCode) {
         String englishText = "";
-        String[] morseWords = morseCode.split(" / ");
-        for (String word : morseWords) {
-            String[] morseLetters = word.split(" ");
-            for (String letter : morseLetters) {
-                if (morse2.containsKey(letter)) {
-                    englishText += morse2.get(letter);
-                } else {
-                    return "Invalid input: " + letter;
-                }
+        for (String morse : morseCode.split(" ")) {
+            // Check for a space
+            if (morse.equals("")) {
+                englishText = englishText + " ";
+            } else if (morse2.containsKey(morse)) {
+                englishText = englishText + morse2.get(morse);
+            } else {
+                return "Invalid input: " + morse;
             }
-            englishText += " ";
         }
         return englishText.trim();
     }
-
-
 }

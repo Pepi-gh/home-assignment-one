@@ -16,20 +16,20 @@ public class MorseCodeTest {
 
     @Test
     public void testMorseSymbols() {
-        String expected = MorseCodeConverter.englishToMorse("..!!??");
-        assertEquals(".-.-.- .-.-.- -.-.-- -.-.-- ..--.. ..--.. ", expected);
+        String expected = MorseCodeConverter.englishToMorse(". .!!??");
+        assertEquals(".-.-.-  .-.-.- -.-.-- -.-.-- ..--.. ..--..", expected);
     }
 
     @Test
     public void testSymbolsMorse() {
-        String expected = MorseCodeConverter.morseToEnglish(".-.-.- .-.-.- -.-.-- -.-.-- ..--.. ..--.. ");
+        String expected = MorseCodeConverter.morseToEnglish(".-.-.- .-.-.- -.-.-- -.-.-- ..--.. ..--..");
         assertEquals("..!!??", expected);
     }
 
     @Test
     public void testHelloWorld() {
         String expected = MorseCodeConverter.englishToMorse("Hello World");
-        assertEquals(".... . .-.. .-.. ---  .-- --- .-. .-.. -.. ", expected);
+        assertEquals(".... . .-.. .-.. ---  .-- --- .-. .-.. -..", expected);
     }
 
 
